@@ -5,6 +5,7 @@ import string
 import datetime
 import subprocess
 import time
+import sys
 
 # Função para gerar um ID aleatório
 def generate_id():
