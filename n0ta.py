@@ -4,7 +4,6 @@ import random
 import string
 import datetime
 import subprocess
-import signal
 import time
 
 # Função para gerar um ID aleatório
