@@ -2,9 +2,8 @@
 echo '[*] _installGet is true .'
 sudo apt install python3
 sudo apt install python3.9
-python3 -m pip install pip
-python3 -m pip install -r modules.txt
-python3 -m pip install frida
+python3 get-pip.py
+pip3 install -r modules.txt
 touch _installed.jjK
 echo '_installedSH=TRUE' >> _installed.jjK
 echo 'isSafe=TRUE' >> _installed.jjK
