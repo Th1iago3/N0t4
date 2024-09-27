@@ -4,8 +4,8 @@ import random
 import string
 import datetime
 import subprocess
+import signal
 import time
-import sys
 
 # Função para gerar um ID aleatório
 def generate_id():
@@ -107,7 +107,7 @@ def main():
         print(f"""\033[92m╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ┋| App-Version: {data["app_version"]}
 ┋| Time: {data["timestamp"]}
-┋| App-Status: Online <{data["- (bool)app_state"]}
+┋| App-Status: Online {data["- (bool)app_state"]}
 ┋| Host: localhost
 ╰━━━━━━━━━━\033[97m[ BOOLEAN ]\033[92m━━━━━━━━━━ """)
         input("[ + ]: 'press enter to stop dylib injection' > ")
@@ -118,13 +118,13 @@ def main():
         update_sh_file(app_choice, active=False)  # Atualiza o arquivo .sh para o estado desativado
         data["- (bool)app_state"] = "false"
     else:
-        app_choice = input("[ d (dopamine) / r (Roothide) ] => ").strip().lower()
+        app_choice = input("[ g (global) / r (Roothide) ] => ").strip().lower()
         print("[ + ]: 0x2af2b8_ / Dylib-injection is Successfully\n")
         print("[ ! ]: Restart your device To Disable...")
         
-        if app_choice == 'd':
+        if app_choice == 'g':
             update_sh_file('dopamine', active=True)  # Atualiza o arquivo .sh para o estado ativo
-            process = subprocess.Popen(["sh", "dopamine_starter.sh"])
+            process = subprocess.Popen(["sh", "alljailB_starter.sh"])
             data["app_version"] = "dopamine"
         elif app_choice == 'r':
             update_sh_file('roothide', active=True)  # Atualiza o arquivo .sh para o estado ativo
@@ -138,4 +138,3 @@ def main():
 if __name__ == "__main__":
     main()
 
-    sys.exit()
